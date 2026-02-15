@@ -3,235 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mica & Yo - San Valentín</title>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <title>Para Mica ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&family=Sacramento&display=swap" rel="stylesheet">
     <style>
         :root {
-            --y2k-pink: #ff00ff;
-            --y2k-soft-pink: #ffb7ff;
-            --y2k-blue: #00d4ff;
-            --bg-color: #ffeef8;
-            --glitter: rgba(255, 255, 255, 0.4);
+            --bg-crema: #FCFAF8;
+            --rosa-polvo: #D9A0A0;
+            --texto-principal: #5C4B51;
+            --texto-suave: #8C7A80;
+            --blanco: #FFFFFF;
         }
 
         body {
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(circle, var(--y2k-soft-pink) 1px, transparent 1px),
-                linear-gradient(var(--y2k-soft-pink) 1px, transparent 1px),
-                linear-gradient(90deg, var(--y2k-soft-pink) 1px, transparent 1px);
-            background-size: 40px 40px, 20px 20px, 20px 20px;
-            font-family: 'Quicksand', sans-serif;
-            color: #333;
+            background-color: var(--bg-crema);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--texto-principal);
             display: flex;
             flex-direction: column;
             align-items: center;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Contenedor Principal Estilo "MySpace/Blog" 2000s */
-        .main-wrapper {
-            width: 92%;
-            max-width: 480px;
-            margin: 30px 0;
-            padding: 25px;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border: 4px solid var(--y2k-pink);
-            border-radius: 30px;
-            box-shadow: 12px 12px 0px var(--y2k-pink), 15px 15px 30px rgba(0,0,0,0.1);
-            z-index: 10;
+        /* Contenedor centralizado para móviles */
+        .carta-container {
+            width: 88%;
+            max-width: 500px;
+            margin: 40px auto;
             position: relative;
+            z-index: 2;
         }
 
-        .pixel-header {
-            font-family: 'VT323', monospace;
-            text-align: center;
-            color: var(--y2k-blue);
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 0px #000;
-        }
-
+        /* Títulos Románticos */
         h1 {
-            font-family: 'Pacifico', cursive;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 2.2rem;
-            color: #ff0077;
+            font-weight: 600;
+            color: var(--rosa-polvo);
             text-align: center;
-            margin: 0 0 30px 0;
-            line-height: 1.2;
-            text-shadow: 3px 3px 0px white;
+            line-height: 1.3;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
         }
 
-        /* Estilo de la Galería de Imágenes */
-        .photo-frame {
-            width: 100%;
-            margin: 25px 0;
-            background: white;
-            padding: 10px 10px 40px 10px; /* Estilo Polaroid */
-            border: 1px solid #ddd;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .firma {
+            font-family: 'Sacramento', cursive;
+            font-size: 2.5rem;
+            color: var(--rosa-polvo);
+            text-align: right;
+            margin-top: -10px;
+            margin-bottom: 30px;
         }
 
-        .photo-frame img {
-            width: 100%;
-            display: block;
-            border-radius: 2px;
-        }
-
-        /* Rotaciones aleatorias para las fotos */
-        .photo-frame:nth-child(odd) { transform: rotate(-3deg); }
-        .photo-frame:nth-child(even) { transform: rotate(3deg); }
-        .photo-frame:hover { transform: rotate(0deg) scale(1.05); z-index: 20; }
-
-        .carta-texto {
-            font-size: 1.1rem;
+        /* Párrafos Minimalistas */
+        p {
+            font-size: 0.95rem;
             line-height: 1.8;
+            font-weight: 300;
             text-align: justify;
-            color: #4a004a;
-            background: rgba(255, 255, 255, 0.4);
-            padding: 15px;
-            border-radius: 15px;
-            margin: 15px 0;
+            margin-bottom: 30px;
+            color: var(--texto-principal);
         }
 
         .highlight {
-            color: #ff0077;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
             font-weight: 600;
-            text-decoration: underline dotted var(--y2k-pink);
+            font-style: italic;
+            color: var(--rosa-polvo);
         }
 
-        /* Botón de Canción Final */
-        .footer-btn {
+        /* Galería de Imágenes Aesthetic */
+        .galeria {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Agrupamos fotos en pares para que no se haga eterno el scroll */
+        .foto-fila {
+            display: flex;
+            gap: 10px;
+        }
+
+        .foto {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(92, 75, 81, 0.08);
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .foto-fila .foto {
+            width: 50%;
+        }
+
+        /* Botón Elegante */
+        .btn-container {
             text-align: center;
-            margin: 40px 0 20px 0;
+            margin: 50px 0 30px 0;
         }
 
-        .btn-song {
-            background: linear-gradient(45deg, var(--y2k-blue), #b06ab3);
-            color: white;
-            padding: 18px 40px;
+        .btn-romantico {
+            background-color: var(--bg-crema);
+            color: var(--rosa-polvo);
+            border: 1px solid var(--rosa-polvo);
+            padding: 14px 35px;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 2px;
             text-decoration: none;
-            border-radius: 50px;
-            font-family: 'VT323', monospace;
-            font-size: 1.8rem;
-            box-shadow: 6px 6px 0px #005a74;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(217, 160, 160, 0.15);
             display: inline-block;
-            transition: 0.3s;
-            border: 2px solid white;
         }
 
-        .btn-song:hover {
-            transform: scale(1.1);
-            filter: brightness(1.1);
+        .btn-romantico:active {
+            background-color: var(--rosa-polvo);
+            color: var(--blanco);
+            transform: scale(0.96);
         }
 
-        .btn-song:active {
-            transform: translate(3px, 3px);
-            box-shadow: 2px 2px 0px #005a74;
+        /* Posdata Divertida */
+        .posdata {
+            font-family: 'Sacramento', cursive;
+            font-size: 1.6rem;
+            color: var(--texto-suave);
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 60px;
+            line-height: 1.2;
         }
 
-        /* Fondo Interactivo */
-        .floating-element {
+        /* Animación de Flores Cayendo (CSS Puro + JS) */
+        .flor-flotante {
             position: fixed;
-            pointer-events: none;
+            top: -10vh;
             z-index: 1;
-            animation: floatAnim linear infinite;
+            pointer-events: none;
+            opacity: 0.4;
+            animation: caer linear infinite;
         }
 
-        @keyframes floatAnim {
-            0% { transform: translateY(110vh) rotate(0deg) scale(1); }
-            100% { transform: translateY(-20vh) rotate(360deg) scale(1.5); }
+        @keyframes caer {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="main-wrapper">
-        <div class="pixel-header">♥ Love_Player.exe - Loading... 100% ♥</div>
-        <h1>FELIZ SAN VALENTÍN MICAAA, <br> TE AMO</h1>
+    <div class="carta-container">
+        
+        <h1>Feliz San Valentín Mica,<br>Te Amo</h1>
 
-        <div class="photo-frame">
-            <img src="20250521_115446.jpg" alt="Recuerdo">
+        <p>Mica, hoy el día ha estado súper silencioso y, no te voy a mentir, me hizo falta escucharte. A veces esos vacíos se sienten raros y me doy cuenta de cuánto te busco en mi cabeza a cada rato. Espero que tu día haya sido increíble y que hayas tenido momentos de esos que te hacen sonreír, porque me quedé con todas las ganas de haber pasado cada segundo contigo.</p>
+
+        <div class="galeria foto-fila">
+            <img src="20250521_115446.jpg" class="foto" alt="Mica y yo">
+            <img src="20250531_132115.jpg" class="foto" alt="Mica y yo">
         </div>
 
-        <div class="carta-texto">
-            Mica, hoy el día ha estado súper silencioso y, no te voy a mentir, me hizo falta escucharte. A veces esos vacíos se sienten raros y me doy cuenta de cuánto te busco en mi cabeza a cada rato. Espero que tu día haya sido increíble y que hayas tenido momentos de esos que te hacen sonreír, porque me quedé con todas las ganas de haber pasado cada segundo contigo.
+        <p>Estaba viendo "Amarte Duele" y me quedé pensando en que ninguna película se compara a lo que tenemos nosotros; <span class="highlight">mi única certeza eres tú</span>. Sé perfectamente que no soy alguien perfecto y la verdad es que no te puedo prometer una relación de cuento donde todo sea color de rosa, pero lo que sí te puedo dar es algo real. Algo que vayamos construyendo los dos, paso a pasito, con los pies en la tierra pero con todo el corazón.</p>
+
+        <div class="galeria">
+            <img src="20250531_132743.jpg" class="foto" alt="Mica y yo">
         </div>
 
-        <div class="photo-frame">
-            <img src="20250531_132115.jpg" alt="Recuerdo">
+        <p>Me encanta lo sencilla que eres y lo natural de nuestras salidas, sin poses ni planes complicados. La química que tenemos es otra cosa, esa forma en la que conectamos con solo mirarnos es lo que más valoro. Me quedo con las pequeñas cosas, que para mí lo son todo: sentir tu piel junto a la mía, la suavidad de tus manos cuando las tomo entre las mías, o esa paz increíble que me da ver tus ojos cuando estás feliz.</p>
+
+        <div class="galeria foto-fila">
+            <img src="20251116_125547.jpg" class="foto" alt="Mica y yo">
+            <img src="20251116_125556.jpg" class="foto" alt="Mica y yo">
         </div>
 
-        <div class="photo-frame">
-            <img src="20250531_132743.jpg" alt="Recuerdo">
+        <p>De verdad, nada me gusta más que lograr sacarte una sonrisa o simplemente tener la suerte de acompañarte en tu día a día, sea haciendo algo importante o solo estando ahí para ti.</p>
+
+        <div class="galeria foto-fila">
+            <img src="20260209_120923.jpg" class="foto" alt="Mica y yo">
+            <img src="20260209_120933.jpg" class="foto" alt="Mica y yo">
         </div>
 
-        <div class="carta-texto">
-            Estaba viendo "Amarte Duele" y me quedé pensando en que ninguna película se compara a lo que tenemos nosotros; <span class="highlight">mi única certeza eres tú</span>. Sé perfectamente que no soy alguien perfecto y la verdad es que no te puedo prometer una relación de cuento donde todo sea color de rosa, pero lo que sí te puedo dar es algo real. Algo que vayamos construyendo los dos, paso a pasito, con los pies en la tierra pero con todo el corazón.
+        <p>Ya casi vamos para el año desde que nos vimos por primera vez y sigo confirmando que mi lugar en el mundo es a tu lado. Hoy es 14 de febrero y, aunque trato de demostrarte que te amo y darte todo de mí cada día del año, no quería dejar pasar la fecha sin entregarte este detalle.</p>
+
+        <div class="galeria foto-fila">
+            <img src="IMG-20250523-WA0020.jpg" class="foto" alt="Mica y yo">
+            <img src="IMG-20250524-WA0066.jpg" class="foto" alt="Mica y yo">
         </div>
 
-        <div class="photo-frame">
-            <img src="20251116_125547.jpg" alt="Recuerdo">
+        <p>Quería que tuvieras este pedacito de mi alma escrito, para que sepas que siempre estoy aquí. <span class="highlight">Te amo muchísimo, Mica.</span> Espero que sigamos escribiendo nuestra historia juntos, así, poco a poco, pero siempre de la mano.</p>
+        
+        <div class="firma">Con todo mi amor...</div>
+
+        <div class="btn-container">
+            <a href="https://www.youtube.com/watch?v=4lu_S8YwWIo&list=RD4lu_S8YwWIo&start_radio=1" class="btn-romantico" target="_blank">Reproducir nuestra canción</a>
         </div>
 
-        <div class="photo-frame">
-            <img src="20251116_125556.jpg" alt="Recuerdo">
+        <div class="posdata">
+            P.D.: Estas flores no huelen, entonces te tienen que gustar jjajajajajaj 🥀
         </div>
 
-        <div class="carta-texto">
-            Me encanta lo sencilla que eres y lo natural de nuestras salidas, sin poses ni planes complicados. La química que tenemos es otra cosa, esa forma en la que conectamos con solo mirarnos es lo que más valoro. Me quedo con las pequeñas cosas, que para mí lo son todo: sentir tu piel junto a la mía, la suavidad de tus manos cuando las tomo entre las mías, o esa paz increíble que me da ver tus ojos cuando estás feliz.
-        </div>
-
-        <div class="photo-frame">
-            <img src="20260209_120923.jpg" alt="Recuerdo">
-        </div>
-
-        <div class="photo-frame">
-            <img src="20260209_120933.jpg" alt="Recuerdo">
-        </div>
-
-        <div class="carta-texto">
-            De verdad, nada me gusta más que lograr sacarte una sonrisa o simplemente tener la suerte de acompañarte en tu día a día, sea haciendo algo importante o solo estando ahí para ti. Ya casi vamos para el año desde que nos vimos por primera vez y sigo confirmando que mi lugar en el mundo es a tu lado. 
-        </div>
-
-        <div class="photo-frame">
-            <img src="IMG-20250523-WA0020.jpg" alt="Recuerdo">
-        </div>
-
-        <div class="photo-frame">
-            <img src="IMG-20250524-WA0066.jpg" alt="Recuerdo">
-        </div>
-
-        <div class="carta-texto">
-            Hoy es 14 de febrero y, aunque trato de demostrarte que te amo y darte todo de mí cada día del año, no quería dejar pasar la fecha sin entregarte este detalle. Quería que tuvieras este pedacito de mi alma escrito, para que sepas que siempre estoy aquí. <br><br>
-            <span class="highlight">Te amo muchísimo, Mica.</span> Espero que sigamos escribiendo nuestra historia juntos, así, poco a poco, pero siempre de la mano.
-        </div>
-
-        <div class="footer-btn">
-            <a href="https://www.youtube.com/watch?v=4lu_S8YwWIo&list=RD4lu_S8YwWIo&start_radio=1" class="btn-song" target="_blank">♫ NUESTRA CANCIÓN ♫</a>
-        </div>
     </div>
 
     <script>
-        const emojis = ['💖', '✨', '💿', '🎀', '🌸', '💘', '⭐'];
-        function createFloatingElement() {
-            const el = document.createElement('div');
-            el.className = 'floating-element';
-            el.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-            el.style.left = Math.random() * 100 + 'vw';
-            el.style.fontSize = Math.random() * (35 - 15) + 15 + 'px';
-            el.style.animationDuration = (Math.random() * 5 + 5) + 's';
-            el.style.opacity = Math.random() * 0.7 + 0.3;
-            document.body.appendChild(el);
+        // Símbolos de diferentes flores
+        const tiposDeFlores = ['🌸', '🌹', '🌷', '🌺', '💮', '🥀'];
 
-            setTimeout(() => { el.remove(); }, 10000);
+        function crearFlor() {
+            const flor = document.createElement('div');
+            flor.classList.add('flor-flotante');
+            
+            // Selección aleatoria de flor
+            flor.innerHTML = tiposDeFlores[Math.floor(Math.random() * tiposDeFlores.length)];
+            
+            // Posición y tamaño aleatorios
+            flor.style.left = Math.random() * 100 + 'vw';
+            flor.style.fontSize = (Math.random() * 12 + 12) + 'px'; // Tamaños sutiles (12px a 24px)
+            
+            // Animación lenta y relajante para que no maree en el celular
+            flor.style.animationDuration = (Math.random() * 8 + 7) + 's'; 
+            
+            document.body.appendChild(flor);
+
+            // Eliminar la flor una vez que termina la animación
+            setTimeout(() => {
+                flor.remove();
+            }, 15000);
         }
 
-        setInterval(createFloatingElement, 400);
+        // Crear una nueva flor cada 800ms para mantener un efecto sutil y limpio
+        setInterval(crearFlor, 800);
     </script>
+
 </body>
 </html>
