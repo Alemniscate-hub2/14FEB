@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Mica ❤️</title>
+    <title>Mica & Yo - San Valentín</title>
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -11,15 +11,18 @@
             --y2k-soft-pink: #ffb7ff;
             --y2k-blue: #00d4ff;
             --bg-color: #ffeef8;
+            --glitter: rgba(255, 255, 255, 0.4);
         }
 
         body {
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
-            background-image: linear-gradient(var(--y2k-soft-pink) 1px, transparent 1px),
-                              linear-gradient(90deg, var(--y2k-soft-pink) 1px, transparent 1px);
-            background-size: 20px 20px;
+            background-image: 
+                radial-gradient(circle, var(--y2k-soft-pink) 1px, transparent 1px),
+                linear-gradient(var(--y2k-soft-pink) 1px, transparent 1px),
+                linear-gradient(90deg, var(--y2k-soft-pink) 1px, transparent 1px);
+            background-size: 40px 40px, 20px 20px, 20px 20px;
             font-family: 'Quicksand', sans-serif;
             color: #333;
             display: flex;
@@ -28,169 +31,207 @@
             overflow-x: hidden;
         }
 
-        /* Contenedor Principal */
+        /* Contenedor Principal Estilo "MySpace/Blog" 2000s */
         .main-wrapper {
-            width: 90%;
-            max-width: 450px;
-            margin: 20px 0;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 3px solid var(--y2k-pink);
-            border-radius: 25px;
-            box-shadow: 8px 8px 0px var(--y2k-pink);
+            width: 92%;
+            max-width: 480px;
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 4px solid var(--y2k-pink);
+            border-radius: 30px;
+            box-shadow: 12px 12px 0px var(--y2k-pink), 15px 15px 30px rgba(0,0,0,0.1);
             z-index: 10;
+            position: relative;
         }
 
         .pixel-header {
             font-family: 'VT323', monospace;
             text-align: center;
             color: var(--y2k-blue);
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             margin-bottom: 10px;
-            text-transform: uppercase;
+            text-shadow: 1px 1px 0px #000;
         }
 
         h1 {
             font-family: 'Pacifico', cursive;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #ff0077;
             text-align: center;
-            margin: 0 0 25px 0;
-            text-shadow: 2px 2px 0px white;
+            margin: 0 0 30px 0;
+            line-height: 1.2;
+            text-shadow: 3px 3px 0px white;
         }
 
-        /* Estilo de las Imágenes */
-        .img-container {
+        /* Estilo de la Galería de Imágenes */
+        .photo-frame {
             width: 100%;
-            margin: 20px 0;
-            text-align: center;
+            margin: 25px 0;
+            background: white;
+            padding: 10px 10px 40px 10px; /* Estilo Polaroid */
+            border: 1px solid #ddd;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .img-container img {
+        .photo-frame img {
             width: 100%;
-            border-radius: 15px;
-            border: 4px solid white;
-            box-shadow: 0 10px 20px rgba(255, 0, 255, 0.2);
-            transition: transform 0.3s;
+            display: block;
+            border-radius: 2px;
         }
 
-        /* Alternamos la inclinación de las fotos para el look aesthetic */
-        .img-container:nth-child(odd) img { transform: rotate(-2deg); }
-        .img-container:nth-child(even) img { transform: rotate(2deg); }
+        /* Rotaciones aleatorias para las fotos */
+        .photo-frame:nth-child(odd) { transform: rotate(-3deg); }
+        .photo-frame:nth-child(even) { transform: rotate(3deg); }
+        .photo-frame:hover { transform: rotate(0deg) scale(1.05); z-index: 20; }
 
-        /* El Texto de la Carta */
         .carta-texto {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            text-align: left;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
             color: #4a004a;
-            white-space: pre-wrap; /* Mantiene los saltos de línea */
-            padding: 10px;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 15px;
+            border-radius: 15px;
+            margin: 15px 0;
         }
 
         .highlight {
             color: #ff0077;
             font-weight: 600;
+            text-decoration: underline dotted var(--y2k-pink);
         }
 
-        /* Botón Final */
+        /* Botón de Canción Final */
         .footer-btn {
             text-align: center;
-            margin-top: 30px;
-            margin-bottom: 20px;
+            margin: 40px 0 20px 0;
         }
 
-        .btn-y2k {
-            background: var(--y2k-blue);
+        .btn-song {
+            background: linear-gradient(45deg, var(--y2k-blue), #b06ab3);
             color: white;
-            padding: 15px 35px;
+            padding: 18px 40px;
             text-decoration: none;
             border-radius: 50px;
             font-family: 'VT323', monospace;
-            font-size: 1.6rem;
-            box-shadow: 4px 4px 0px #008eb4;
+            font-size: 1.8rem;
+            box-shadow: 6px 6px 0px #005a74;
             display: inline-block;
-            transition: 0.2s;
+            transition: 0.3s;
+            border: 2px solid white;
         }
 
-        .btn-y2k:active {
-            transform: translate(2px, 2px);
-            box-shadow: 1px 1px 0px #008eb4;
+        .btn-song:hover {
+            transform: scale(1.1);
+            filter: brightness(1.1);
         }
 
-        /* Decoraciones del Fondo */
-        .floating-emoji {
+        .btn-song:active {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0px #005a74;
+        }
+
+        /* Fondo Interactivo */
+        .floating-element {
             position: fixed;
             pointer-events: none;
             z-index: 1;
-            font-size: 1.5rem;
-            animation: floatAnim 6s linear infinite;
-            opacity: 0.6;
+            animation: floatAnim linear infinite;
         }
 
         @keyframes floatAnim {
-            0% { transform: translateY(110vh) rotate(0deg); }
-            100% { transform: translateY(-10vh) rotate(360deg); }
+            0% { transform: translateY(110vh) rotate(0deg) scale(1); }
+            100% { transform: translateY(-20vh) rotate(360deg) scale(1.5); }
         }
     </style>
 </head>
 <body>
 
     <div class="main-wrapper">
-        <div class="pixel-header">Status: Falling in love... 100%</div>
-        <h1>FELIZ SAN VALENTÍN MICAAA, TE AMO</h1>
+        <div class="pixel-header">♥ Love_Player.exe - Loading... 100% ♥</div>
+        <h1>FELIZ SAN VALENTÍN MICAAA, <br> TE AMO</h1>
 
-        <div class="img-container">
-            <img src="IMG_4350.jpeg" alt="Recuerdo 1">
+        <div class="photo-frame">
+            <img src="20250521_115446.jpg" alt="Recuerdo">
         </div>
 
         <div class="carta-texto">
-Mica, hoy el día ha estado súper silencioso y, no te voy a mentir, me hizo falta escucharte. A veces esos vacíos se sienten raros y me doy cuenta de cuánto te busco en mi cabeza a cada rato. Espero que tu día haya sido increíble y que hayas tenido momentos de esos que te hacen sonreír, porque me quedé con todas las ganas de haber pasado cada segundo contigo.
-
-Estaba viendo "Amarte Duele" y me quedé pensando en que ninguna película se compara a lo que tenemos nosotros; <span class="highlight">mi única certeza eres tú</span>. Sé perfectamente que no soy alguien perfecto y la verdad es que no te puedo prometer una relación de cuento donde todo sea color de rosa, pero lo que sí te puedo dar es algo real. Algo que vayamos construyendo los dos, paso a pasito, con los pies en la tierra pero con todo el corazón.
+            Mica, hoy el día ha estado súper silencioso y, no te voy a mentir, me hizo falta escucharte. A veces esos vacíos se sienten raros y me doy cuenta de cuánto te busco en mi cabeza a cada rato. Espero que tu día haya sido increíble y que hayas tenido momentos de esos que te hacen sonreír, porque me quedé con todas las ganas de haber pasado cada segundo contigo.
         </div>
 
-        <div class="img-container">
-            <img src="IMG_4351.jpeg" alt="Recuerdo 2">
+        <div class="photo-frame">
+            <img src="20250531_132115.jpg" alt="Recuerdo">
         </div>
 
-        <div class="carta-texto">
-Me encanta lo sencilla que eres y lo natural de nuestras salidas, sin poses ni planes complicados. La química que tenemos es otra cosa, esa forma en la que conectamos con solo mirarnos es lo que más valoro. Me quedo con las pequeñas cosas, que para mí lo son todo: sentir tu piel junto a la mía, la suavidad de tus manos cuando las tomo entre las mías, o esa paz increíble que me da ver tus ojos cuando estás feliz. 
-
-De verdad, nada me gusta más que lograr sacarte una sonrisa o simplemente tener la suerte de acompañarte en tu día a día, sea haciendo algo importante o solo estando ahí para ti.
-        </div>
-
-        <div class="img-container">
-            <img src="IMG_4352.jpeg" alt="Recuerdo 3">
+        <div class="photo-frame">
+            <img src="20250531_132743.jpg" alt="Recuerdo">
         </div>
 
         <div class="carta-texto">
-Ya casi vamos para el año desde que nos vimos por primera vez y sigo confirmando que mi lugar en el mundo es a tu lado. Hoy es 14 de febrero y, aunque trato de demostrarte que te amo y darte todo de mí cada día del año, no quería dejar pasar la fecha sin entregarte este detalle. Quería que tuvieras este pedacito de mi alma escrito, para que sepas que siempre estoy aquí.
+            Estaba viendo "Amarte Duele" y me quedé pensando en que ninguna película se compara a lo que tenemos nosotros; <span class="highlight">mi única certeza eres tú</span>. Sé perfectamente que no soy alguien perfecto y la verdad es que no te puedo prometer una relación de cuento donde todo sea color de rosa, pero lo que sí te puedo dar es algo real. Algo que vayamos construyendo los dos, paso a pasito, con los pies en la tierra pero con todo el corazón.
+        </div>
 
-<span class="highlight">Te amo muchísimo, Mica.</span> Espero que sigamos escribiendo nuestra historia juntos, así, poco a poco, pero siempre de la mano.
+        <div class="photo-frame">
+            <img src="20251116_125547.jpg" alt="Recuerdo">
+        </div>
+
+        <div class="photo-frame">
+            <img src="20251116_125556.jpg" alt="Recuerdo">
+        </div>
+
+        <div class="carta-texto">
+            Me encanta lo sencilla que eres y lo natural de nuestras salidas, sin poses ni planes complicados. La química que tenemos es otra cosa, esa forma en la que conectamos con solo mirarnos es lo que más valoro. Me quedo con las pequeñas cosas, que para mí lo son todo: sentir tu piel junto a la mía, la suavidad de tus manos cuando las tomo entre las mías, o esa paz increíble que me da ver tus ojos cuando estás feliz.
+        </div>
+
+        <div class="photo-frame">
+            <img src="20260209_120923.jpg" alt="Recuerdo">
+        </div>
+
+        <div class="photo-frame">
+            <img src="20260209_120933.jpg" alt="Recuerdo">
+        </div>
+
+        <div class="carta-texto">
+            De verdad, nada me gusta más que lograr sacarte una sonrisa o simplemente tener la suerte de acompañarte en tu día a día, sea haciendo algo importante o solo estando ahí para ti. Ya casi vamos para el año desde que nos vimos por primera vez y sigo confirmando que mi lugar en el mundo es a tu lado. 
+        </div>
+
+        <div class="photo-frame">
+            <img src="IMG-20250523-WA0020.jpg" alt="Recuerdo">
+        </div>
+
+        <div class="photo-frame">
+            <img src="IMG-20250524-WA0066.jpg" alt="Recuerdo">
+        </div>
+
+        <div class="carta-texto">
+            Hoy es 14 de febrero y, aunque trato de demostrarte que te amo y darte todo de mí cada día del año, no quería dejar pasar la fecha sin entregarte este detalle. Quería que tuvieras este pedacito de mi alma escrito, para que sepas que siempre estoy aquí. <br><br>
+            <span class="highlight">Te amo muchísimo, Mica.</span> Espero que sigamos escribiendo nuestra historia juntos, así, poco a poco, pero siempre de la mano.
         </div>
 
         <div class="footer-btn">
-            <a href="https://tu-link-aqui.com" class="btn-y2k">CLICK FOR SURPRISE →</a>
+            <a href="https://www.youtube.com/watch?v=4lu_S8YwWIo&list=RD4lu_S8YwWIo&start_radio=1" class="btn-song" target="_blank">♫ NUESTRA CANCIÓN ♫</a>
         </div>
     </div>
 
     <script>
-        // Lluvia de corazones y estrellas retro
-        const emojis = ['💖', '✨', '🌸', '🎀', '💎'];
-        function createEmoji() {
+        const emojis = ['💖', '✨', '💿', '🎀', '🌸', '💘', '⭐'];
+        function createFloatingElement() {
             const el = document.createElement('div');
-            el.className = 'floating-emoji';
+            el.className = 'floating-element';
             el.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
             el.style.left = Math.random() * 100 + 'vw';
-            el.style.animationDuration = (Math.random() * 4 + 4) + 's';
+            el.style.fontSize = Math.random() * (35 - 15) + 15 + 'px';
+            el.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            el.style.opacity = Math.random() * 0.7 + 0.3;
             document.body.appendChild(el);
 
-            setTimeout(() => { el.remove(); }, 8000);
+            setTimeout(() => { el.remove(); }, 10000);
         }
 
-        setInterval(createEmoji, 500);
+        setInterval(createFloatingElement, 400);
     </script>
 </body>
 </html>
