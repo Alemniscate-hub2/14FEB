@@ -14,9 +14,12 @@
             --glass: rgba(255, 255, 255, 0.2);
         }
 
+        /* Restablecer cursor por defecto para evitar problemas con algunos sistemas */
         * {
             box-sizing: border-box;
+            /* Si quieres un cursor custom, puedes activarlo aquí:
             cursor: url('https://cur.cursors-4u.net/symbols/sym-1/sym46.cur'), auto;
+            */
         }
 
         body {
@@ -117,6 +120,7 @@
             box-shadow: 5px 5px 0px #008eb4;
             transition: 0.2s;
             display: inline-block;
+            cursor: pointer; /* Aseguramos que el botón tenga cursor de puntero */
         }
 
         .y2k-button:active {
@@ -130,6 +134,14 @@
             background: white;
             border-radius: 50%;
             pointer-events: none;
+            opacity: 0; /* Inicialmente invisible */
+            animation: fadeOutSparkle 1s forwards;
+        }
+
+        @keyframes fadeOutSparkle {
+            0% { transform: scale(0); opacity: 1; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
         }
     </style>
 </head>
@@ -163,7 +175,7 @@
 
     <script>
         // Crear elementos decorativos flotantes (estilo 2000s)
-        const decoraciones = ['💖', '✨', '💿', '🎀', '🌸'];
+        const decoraciones = ['💖', '✨', '💿', '🎀', '🌸']; // Iconos para las decoraciones
         function crearDecoracion() {
             const el = document.createElement('div');
             el.className = 'decoracion';
@@ -171,14 +183,23 @@
             el.style.left = Math.random() * 100 + 'vw';
             el.style.top = Math.random() * 100 + 'vh';
             el.style.fontSize = Math.random() * (30 - 15) + 15 + 'px';
-            el.style.animationDuration = Math.random() * 5 + 3 + 's';
-            el.style.opacity = '0.6';
+            el.style.animationDuration = Math.random() * 5 + 3 + 's'; // Duración de la animación aleatoria
+            el.style.opacity = '0.6'; // Opacidad suave
             document.body.appendChild(el);
+
+            // Eliminar la decoración después de un tiempo para no sobrecargar el DOM
+            setTimeout(() => {
+                el.remove();
+            }, parseFloat(el.style.animationDuration) * 1000 + 1000); // Duración de la animación + un segundo
         }
 
+        // Generar algunas decoraciones iniciales
         for(let i=0; i<15; i++) {
             crearDecoracion();
         }
+
+        // Crear nuevas decoraciones de forma continua
+        setInterval(crearDecoracion, 1000); // Cada 1 segundo aparece una nueva decoración
 
         // Efecto de brillo al mover el mouse/toque
         document.addEventListener('mousemove', (e) => {
@@ -190,7 +211,23 @@
             sparkle.style.height = '5px';
             document.body.appendChild(sparkle);
 
+            // Eliminar el brillo después de la animación
             setTimeout(() => sparkle.remove(), 1000);
+        });
+
+        // Para dispositivos táctiles (simular el "mousemove" con "touchmove")
+        document.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                const touch = e.touches[0];
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = touch.pageX + 'px';
+                sparkle.style.top = touch.pageY + 'px';
+                sparkle.style.width = '5px';
+                sparkle.style.height = '5px';
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 1000);
+            }
         });
     </script>
 </body>
