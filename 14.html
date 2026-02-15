@@ -3,155 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para mi Valentín</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <title>Para Mica - 14/02</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-rosa: #ffafcc;
-            --color-rojo: #ff5c8a;
-            --color-crema: #fff0f3;
+            --y2k-pink: #ff00ff;
+            --y2k-soft-pink: #ffb7ff;
+            --y2k-blue: #00d4ff;
+            --y2k-white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            cursor: url('https://cur.cursors-4u.net/symbols/sym-1/sym46.cur'), auto;
         }
 
         body {
             margin: 0;
             padding: 0;
-            background-color: var(--color-crema);
+            background: #ffdef2;
+            /* Fondo con patrón de cuadrícula retro */
+            background-image: linear-gradient(var(--y2k-soft-pink) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--y2k-soft-pink) 1px, transparent 1px);
+            background-size: 25px 25px;
             font-family: 'Quicksand', sans-serif;
-            color: #4a4a4a;
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Fondo Interactivo de Corazones */
-        #bg-animation {
+        /* Estrellas y corazones flotantes */
+        .decoracion {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
             pointer-events: none;
+            z-index: 0;
+            filter: drop-shadow(0 0 5px var(--y2k-pink));
+            animation: float 6s ease-in-out infinite;
         }
 
-        /* Contenedor Principal */
-        .container {
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(20deg); }
+        }
+
+        .main-container {
             width: 90%;
-            max-width: 400px;
-            padding: 40px 20px;
-            text-align: center;
-            z-index: 1;
+            max-width: 450px;
+            margin: 40px auto;
+            background: var(--glass);
+            backdrop-filter: blur(8px);
+            border: 3px solid var(--y2k-pink);
+            border-radius: 20px;
+            padding: 30px 20px;
+            box-shadow: 10px 10px 0px var(--y2k-pink);
+            z-index: 2;
+            position: relative;
         }
 
         h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            color: var(--color-rojo);
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        /* Estilo de la Carta */
-        .carta {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(255, 175, 204, 0.3);
-            line-height: 1.6;
+            font-family: 'Pacifico', cursive;
+            font-size: 2.2rem;
+            color: #ff0077;
+            text-align: center;
+            line-height: 1.2;
+            text-shadow: 3px 3px 0px var(--y2k-white);
             margin-bottom: 30px;
-            border: 1px solid white;
         }
 
-        /* Galería de Imágenes */
-        .foto {
-            width: 100%;
+        /* Estilo de la carta poética */
+        .letter-content {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.05rem;
+            color: #4a004a;
+            line-height: 1.8;
+            text-align: justify;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 20px;
             border-radius: 15px;
-            margin: 15px 0;
-            border: 5px solid white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transform: rotate(-2deg);
-            transition: transform 0.3s;
+            border-left: 5px solid var(--y2k-pink);
         }
 
-        .foto:nth-child(even) {
-            transform: rotate(2deg);
+        .letter-content b {
+            color: #ff0077;
         }
 
-        /* Botón Final */
-        .btn-romantico {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: var(--color-rojo);
+        /* Estilo Retro Pixel para detalles */
+        .pixel-date {
+            font-family: 'VT323', monospace;
+            text-align: center;
+            display: block;
+            font-size: 1.5rem;
+            color: var(--y2k-blue);
+            margin-bottom: 10px;
+        }
+
+        /* Botón Y2K */
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .y2k-button {
+            background: var(--y2k-blue);
             color: white;
-            text-decoration: none;
+            padding: 15px 30px;
+            border: none;
             border-radius: 50px;
-            font-weight: 500;
-            box-shadow: 0 5px 15px rgba(255, 92, 138, 0.4);
-            transition: transform 0.2s;
-            margin-top: 20px;
+            font-family: 'VT323', monospace;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 5px 5px 0px #008eb4;
+            transition: 0.2s;
+            display: inline-block;
         }
 
-        .btn-romantico:active {
-            transform: scale(0.95);
+        .y2k-button:active {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0px #008eb4;
         }
 
-        /* Animación de corazones flotantes */
-        .corazon {
+        /* Corazones interactivos del fondo */
+        .sparkle {
             position: absolute;
-            color: var(--color-rosa);
-            font-size: 20px;
-            animation: flotar linear infinite;
-        }
-
-        @keyframes flotar {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
 
-    <div id="bg-animation"></div>
+    <div id="particles"></div>
 
-    <div class="container">
-        <h1>Para mi Persona Favorita</h1>
+    <div class="main-container">
+        <span class="pixel-date">LOADING LOVE... 99%</span>
+        
+        <h1>FELIZ SAN VALENTÍN MICAAA, <br> TE AMO</h1>
 
-        <img src="tu-imagen-1.jpg" alt="Nuestro momento" class="foto">
-
-        <div class="carta">
+        <div class="letter-content">
             <p>
-                Aquí puedes escribir todo lo que sientes. 
-                Este es un espacio dedicado a nosotros, 
-                lleno de recuerdos y momentos especiales. 
-                Gracias por estar en mi vida. ❤️
+                Mica, amor mío, hoy el silencio ha sido nuestro único interlocutor, y en ese vacío de palabras mi alma ha buscado la tuya con una urgencia poética. Espero que estés bien, que tu día haya tenido destellos de alegría, aunque me quede con el anhelo suspendido de haber habitado cada segundo a tu lado. 
+                <br><br>
+                Hoy, viendo <i>"Amarte Duele"</i>, comprendí que la realidad supera cualquier guion: <b>mi única certeza eres tú</b>. Sinceramente, siempre supe que no necesito nada más que tu existencia para darle sentido a mi mundo. Sueño con un universo donde solo existamos nosotros dos, un refugio donde pueda entregarte lo mejor de mí, sin ruidos externos. 
+                <br><br>
+                Mi mayor ambición es construir un hogar en tu corazón; sé que el camino tendrá tormentas, roces y madrugadas difíciles, pero no importa el tiempo ni los obstáculos si el destino final eres tú. Estoy profundamente enamorado de ti, con un sentimiento que desborda cualquier diccionario. Te pienso en cada latido, te extraño en cada suspiro y te elijo, una y otra vez, en mi mente. 
+                <br><br>
+                A casi un año de aquel primer encuentro, sigo confirmando que <b>mi lugar en el mundo es a tu lado</b>. Este 14 de febrero, aunque intento demostrarte mi devoción a diario, he querido entregarte este pequeño fragmento de mi alma en forma de carta virtual. 
+                <br><br>
+                Te amo, te amo, te amo.
             </p>
         </div>
 
-        <img src="tu-imagen-2.jpg" alt="Otro recuerdo" class="foto">
-
-        <a href="https://tu-link-aqui.com" class="btn-romantico">Haz clic aquí, amor 🌹</a>
+        <div class="btn-container">
+            <a href="https://TU_LINK_AQUI.com" class="y2k-button">PRESS START →</a>
+        </div>
     </div>
 
     <script>
-        // Generador de corazones de fondo
-        function crearCorazon() {
-            const container = document.getElementById('bg-animation');
-            const corazon = document.createElement('div');
-            corazon.classList.add('corazon');
-            corazon.innerHTML = '❤';
-            corazon.style.left = Math.random() * 100 + 'vw';
-            corazon.style.animationDuration = Math.random() * 3 + 2 + 's';
-            corazon.style.opacity = Math.random();
-            
-            container.appendChild(corazon);
-
-            setTimeout(() => {
-                corazon.remove();
-            }, 5000);
+        // Crear elementos decorativos flotantes (estilo 2000s)
+        const decoraciones = ['💖', '✨', '💿', '🎀', '🌸'];
+        function crearDecoracion() {
+            const el = document.createElement('div');
+            el.className = 'decoracion';
+            el.innerHTML = decoraciones[Math.floor(Math.random() * decoraciones.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.top = Math.random() * 100 + 'vh';
+            el.style.fontSize = Math.random() * (30 - 15) + 15 + 'px';
+            el.style.animationDuration = Math.random() * 5 + 3 + 's';
+            el.style.opacity = '0.6';
+            document.body.appendChild(el);
         }
 
-        setInterval(crearCorazon, 300);
+        for(let i=0; i<15; i++) {
+            crearDecoracion();
+        }
+
+        // Efecto de brillo al mover el mouse/toque
+        document.addEventListener('mousemove', (e) => {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = e.pageX + 'px';
+            sparkle.style.top = e.pageY + 'px';
+            sparkle.style.width = '5px';
+            sparkle.style.height = '5px';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => sparkle.remove(), 1000);
+        });
     </script>
 </body>
 </html>
